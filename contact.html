@@ -1,0 +1,501 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stackly</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-container">
+
+    <div class="social-icons">
+      <a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="404.html"><i class="fa-brands fa-twitter"></i></a>
+      <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+      <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+
+    <div class="top-text">
+      24/7 Support | stackly@gmail.com
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- HEADER -->
+
+<header class="header">
+  <div class="container nav-container">
+<div class="logo">
+  <a href="index.html">
+    <img src="images/loo.webp" alt="logo">
+  </a>
+</div>
+    <nav class="nav">
+      <ul>
+
+        <li class="dropdown">
+          <a href="index.html">Home ▾</a>
+
+          <ul class="dropdown-menu">
+            <li><a href="home2.html">Home 2</a></li>
+          </ul>
+
+        </li>
+
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+
+      </ul>
+    </nav>
+<a href="login.html" class="moving-btn"><span>Login</span></a>
+
+    <!-- HAMBURGER -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+</header>
+
+
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+<button class="close-menu" id="closeMenu">✕</button>
+
+<ul>
+
+<li class="mobile-dropdown">
+
+<div class="mobile-home">
+Home <span>▾</span>
+</div>
+
+<ul class="mobile-submenu" id="mobileSubmenu">
+<li><a href="home2.html">Home 2</a></li>
+</ul>
+
+</li>
+
+<li><a href="about.html">About</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="blogs.html">Blogs</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="dashboard.html">Dashboard</a></li>
+
+</ul>
+
+</div>
+
+
+
+
+
+
+<section class="stack-about-hero">
+
+<div class="about-container">
+
+<h1 class="about-title" id="aboutTitle">CONTACT</h1>
+
+<div class="about-breadcrumb">
+<span>HOME</span>
+
+<span class="active">CONTACT</span>
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+document.addEventListener("DOMContentLoaded",function(){
+
+const aboutTitle=document.getElementById("aboutTitle");
+
+window.addEventListener("scroll",function(){
+
+let scrollValue=window.scrollY;
+
+aboutTitle.style.transform="translateY(" + scrollValue * 0.3 + "px)";
+
+});
+
+});
+
+</script>
+
+
+
+
+
+
+
+<section class="contact-main">
+
+<div class="contact-container">
+
+<!-- CONTACT CARDS -->
+
+<div class="contact-cards">
+
+<div class="contact-card">
+<div class="contact-icon">📞</div>
+<h3>Call Us 24/7</h3>
+<p>+91 9876543210</p>
+</div>
+
+<div class="contact-card">
+<div class="contact-icon">✉</div>
+<h3>Email Us Anytime</h3>
+<p>support@stackly.com</p>
+</div>
+
+<div class="contact-card">
+<div class="contact-icon">📍</div>
+<h3>Our Location</h3>
+<p>Madapura, Hyderbad India</p>
+</div>
+
+</div>
+
+
+<!-- CONTACT FORM -->
+
+<div class="contact-form-box">
+
+<h2>Let's Start A Conversation</h2>
+
+<form id="contactForm">
+
+<div class="form-row">
+
+<div class="form-group">
+<input type="text" id="name" placeholder="Your Name*">
+<span class="error" id="nameError"></span>
+</div>
+
+<div class="form-group">
+<input type="email" id="email" placeholder="Email Address*">
+<span class="error" id="emailError"></span>
+</div>
+
+</div>
+
+
+<div class="form-row">
+
+<div class="form-group">
+<input type="text" id="phone" placeholder="Phone Number*">
+<span class="error" id="phoneError"></span>
+</div>
+
+<div class="form-group">
+<input type="text" id="subject" placeholder="Subject*">
+<span class="error" id="subjectError"></span>
+</div>
+
+</div>
+
+<div class="form-group">
+<textarea id="message" placeholder="Describe your message*"></textarea>
+<span class="error" id="messageError"></span>
+</div>
+
+<button type="submit">Submit Now</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<script>
+
+document.getElementById("contactForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let name = document.getElementById("name").value.trim();
+let email = document.getElementById("email").value.trim();
+let phone = document.getElementById("phone").value.trim();
+let subject = document.getElementById("subject").value.trim();
+let message = document.getElementById("message").value.trim();
+
+let nameRegex = /^[A-Za-z ]+$/;
+let phoneRegex = /^[0-9]{10}$/;
+let emailRegex = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+/* clear previous errors */
+
+document.querySelectorAll(".error").forEach(el => el.innerText="");
+
+let valid = true;
+
+
+/* NAME */
+
+if(name === ""){
+document.getElementById("nameError").innerText="Name is required";
+valid=false;
+}
+else if(!nameRegex.test(name)){
+document.getElementById("nameError").innerText="Only alphabets allowed";
+valid=false;
+}
+
+
+/* EMAIL */
+
+if(email === ""){
+document.getElementById("emailError").innerText="Email is required";
+valid=false;
+}
+else if(!emailRegex.test(email)){
+document.getElementById("emailError").innerText="Enter valid email";
+valid=false;
+}
+
+
+/* PHONE */
+
+if(phone === ""){
+document.getElementById("phoneError").innerText="Phone number required";
+valid=false;
+}
+else if(!phoneRegex.test(phone)){
+document.getElementById("phoneError").innerText="Phone must be 10 digits";
+valid=false;
+}
+
+
+/* SUBJECT */
+
+if(subject === ""){
+document.getElementById("subjectError").innerText="Subject required";
+valid=false;
+}
+
+
+/* MESSAGE */
+
+if(message === ""){
+document.getElementById("messageError").innerText="Message required";
+valid=false;
+}
+
+
+if(valid){
+
+alert("Form submitted successfully");
+
+document.getElementById("contactForm").reset();
+
+}
+
+});
+
+</script>
+
+
+
+
+
+
+
+
+<!-- GOOGLE MAP -->
+
+<section class="contact-map">
+
+<iframe
+src="https://www.google.com/maps?q=Madipura%20India&output=embed"
+width="100%"
+height="450"
+style="border:0;"
+loading="lazy">
+</iframe>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer class="stack-footer">
+
+<div class="footer-grid">
+
+
+<div class="footer-col">
+
+
+<div class="footer-col">
+<a href="index.html" class="footer-logo">
+  <img src="images/loo.webp" alt="Stackly Logo">
+</a>
+
+<p>
+We've got the perfect tools for your success.
+Join us today and empower toward excellence.
+</p>
+
+<div class="footer-social">
+
+<a href="404.html" class="social-icon">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fab fa-youtube"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fab fa-twitter"></i>
+</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Quick Links</h4>
+
+<ul>
+<li><a href="about.html">About Us</a></li>
+<li><a href="404.html">Payment</a></li>
+<li><a href="404.html">Faqs</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+</ul>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Our Services</h4>
+
+<ul>
+<li><a href="404.html">Transfer Money</a></li>
+<li><a href="404.html">Saving Account</a></li>
+<li><a href="404.html">Online Shopping</a></li>
+<li><a href="404.html">Pay Bills</a></li>
+</ul>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Contact</h4>
+
+<p>Stackly Financial Center</p>
+<p>support@stackly.com</p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<p>© 2026 Stackly</p>
+
+</div>
+
+</footer>
+
+<button id="scrollTopBtn">
+<i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script>
+
+  document.addEventListener("DOMContentLoaded",function(){
+
+const scrollBtn=document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll",function(){
+
+if(window.scrollY>300){
+
+scrollBtn.classList.add("show");
+
+}else{
+
+scrollBtn.classList.remove("show");
+
+}
+
+});
+
+scrollBtn.addEventListener("click",function(){
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+});
+
+});
+</script>
+
+
+<script src="main.js"></script>
+
+</body>
+</html>

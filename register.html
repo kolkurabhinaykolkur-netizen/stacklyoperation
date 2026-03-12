@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Register</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Plus Jakarta Sans",sans-serif;
+}
+
+body{
+background:#f4f6f7;
+}
+
+.auth-wrapper{
+display:flex;
+min-height:100vh;
+}
+
+.auth-form{
+flex:1;
+background:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px;
+}
+
+.form-box{
+width:380px;
+}
+
+.form-box h2{
+margin-bottom:25px;
+}
+
+/* INPUT */
+
+.input-group{
+margin-bottom:18px;
+position:relative;
+}
+
+.input-group input,
+.input-group select{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:8px;
+}
+
+.error{
+color:red;
+font-size:13px;
+margin-top:4px;
+}
+
+/* PASSWORD ICON */
+
+.toggle-password{
+position:absolute;
+right:12px;
+top:12px;
+cursor:pointer;
+}
+
+/* TERMS */
+
+.terms-box{
+font-size:14px;
+margin-bottom:15px;
+}
+
+.terms-box input{
+margin-right:6px;
+}
+
+.terms-box a{
+color:#104042;
+font-weight:600;
+text-decoration:none;
+}
+
+/* BUTTON */
+
+.signup-btn{
+width:100%;
+padding:12px;
+background:#104042;
+color:#fff;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* SUCCESS MESSAGE */
+
+.success-box{
+display:none;
+margin-top:20px;
+padding:12px;
+background:#d4edda;
+color:#155724;
+border-radius:6px;
+text-align:center;
+font-weight:600;
+}
+
+/* FOOTER */
+
+.auth-footer{
+margin-top:18px;
+}
+
+.auth-footer a{
+color:#104042;
+font-weight:600;
+text-decoration:none;
+}
+
+/* IMAGE */
+
+.auth-image{
+flex:1;
+background:#0f4c4c;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.auth-image img{
+width:70%;
+}
+
+.input-label{
+display:block;
+font-size:14px;
+margin-bottom:6px;
+font-weight:600;
+color:#333;
+}
+
+@media(max-width:900px){
+
+.auth-wrapper{
+flex-direction:column;
+}
+
+.auth-image{
+display:none;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="auth-wrapper">
+
+<div class="auth-form">
+
+<div class="form-box">
+
+<h2>Create Account</h2>
+
+<form id="registerForm">
+
+<div class="input-group">
+<input type="text" id="name" placeholder="Full Name*">
+<span class="error" id="nameError"></span>
+</div>
+
+<div class="input-group">
+<input type="text" id="email" placeholder="Email Address*">
+<span class="error" id="emailError"></span>
+</div>
+
+<div class="input-group">
+<div class="input-group">
+
+<label class="input-label">Register As</label>
+
+<select id="role">
+<option value="">Select Role</option>
+<option value="user">User</option>
+<option value="admin">Admin</option>
+</select>
+
+<span class="error" id="roleError"></span>
+
+</div>
+<span class="error" id="roleError"></span>
+</div>
+
+<div class="input-group">
+
+<input type="password" id="password" placeholder="Password*">
+
+<span class="toggle-password" onclick="togglePassword()">👁</span>
+
+<span class="error" id="passwordError"></span>
+
+</div>
+
+<div class="input-group">
+
+<input type="password" id="confirmPassword" placeholder="Confirm Password*">
+
+<span class="toggle-password" onclick="toggleConfirm()">👁</span>
+
+<span class="error" id="confirmError"></span>
+
+</div>
+
+<div class="terms-box">
+
+<label>
+<input type="checkbox" id="terms">
+I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+</label>
+
+<span class="error" id="termsError"></span>
+
+</div>
+
+<button class="signup-btn">Sign Up</button>
+
+</form>
+
+<div id="successMessage" class="success-box">
+Account Created Successfully ✔
+</div>
+
+<div class="auth-footer">
+Already have an account? <a href="login.html">Login</a>
+</div>
+
+</div>
+
+</div>
+
+<div class="auth-image">
+<img src="images/b1 (15).webp">
+</div>
+
+</div>
+
+<script>
+
+function togglePassword(){
+
+let pass=document.getElementById("password");
+
+pass.type = pass.type==="password" ? "text" : "password";
+
+}
+
+function toggleConfirm(){
+
+let pass=document.getElementById("confirmPassword");
+
+pass.type = pass.type==="password" ? "text" : "password";
+
+}
+
+document.getElementById("registerForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value.trim();
+let email=document.getElementById("email").value.trim();
+let role=document.getElementById("role").value;
+let password=document.getElementById("password").value.trim();
+let confirm=document.getElementById("confirmPassword").value.trim();
+let terms=document.getElementById("terms").checked;
+
+let emailRegex=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+document.getElementById("nameError").innerText="";
+document.getElementById("emailError").innerText="";
+document.getElementById("roleError").innerText="";
+document.getElementById("passwordError").innerText="";
+document.getElementById("confirmError").innerText="";
+document.getElementById("termsError").innerText="";
+
+let valid=true;
+
+if(name===""){
+document.getElementById("nameError").innerText="Enter your name";
+valid=false;
+}
+
+if(email===""){
+document.getElementById("emailError").innerText="Enter email";
+valid=false;
+}
+else if(!emailRegex.test(email)){
+document.getElementById("emailError").innerText="Invalid email";
+valid=false;
+}
+
+if(role===""){
+document.getElementById("roleError").innerText="Select role";
+valid=false;
+}
+
+if(password===""){
+document.getElementById("passwordError").innerText="Enter password";
+valid=false;
+}
+
+if(confirm===""){
+document.getElementById("confirmError").innerText="Confirm password";
+valid=false;
+}
+
+if(password!==confirm){
+document.getElementById("confirmError").innerText="Passwords do not match";
+valid=false;
+}
+
+if(!terms){
+document.getElementById("termsError").innerText="Accept Terms & Conditions";
+valid=false;
+}
+
+if(valid){
+
+document.getElementById("successMessage").style.display="block";
+
+setTimeout(function(){
+
+window.location.href="login.html";
+
+},2000);
+
+}
+
+});
+
+</script>
+
+</body>
+</html>

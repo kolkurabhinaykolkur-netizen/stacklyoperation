@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Plus Jakarta Sans",sans-serif;
+}
+
+body{
+background:#f4f6f7;
+}
+
+.auth-wrapper{
+display:flex;
+min-height:100vh;
+}
+
+/* LEFT FORM */
+
+.auth-form{
+flex:1;
+background:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px;
+}
+
+.form-box{
+width:380px;
+}
+
+.form-box h2{
+margin-bottom:25px;
+font-size:28px;
+}
+
+/* INPUT */
+
+.input-group{
+margin-bottom:18px;
+position:relative;
+}
+
+.input-group input,
+.input-group select{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:8px;
+}
+
+.error{
+color:red;
+font-size:13px;
+margin-top:4px;
+}
+
+/* PASSWORD ICON */
+
+.toggle-password{
+position:absolute;
+right:12px;
+top:12px;
+cursor:pointer;
+}
+
+/* OPTIONS */
+
+.login-options{
+display:flex;
+justify-content:space-between;
+font-size:14px;
+margin-bottom:15px;
+}
+
+.login-options a{
+color:#104042;
+text-decoration:none;
+}
+
+/* BUTTON */
+
+.login-btn{
+width:100%;
+padding:12px;
+background:#104042;
+color:#fff;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+.auth-footer{
+margin-top:18px;
+font-size:14px;
+}
+
+.auth-footer a{
+color:#104042;
+font-weight:600;
+text-decoration:none;
+}
+
+/* IMAGE */
+
+.auth-image{
+flex:1;
+background:#0f4c4c;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.auth-image img{
+width:70%;
+}
+
+.input-label{
+display:block;
+font-size:14px;
+margin-bottom:6px;
+font-weight:600;
+color:#333;
+}
+
+@media(max-width:900px){
+
+.auth-wrapper{
+flex-direction:column;
+}
+
+.auth-image{
+display:none;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="auth-wrapper">
+
+<div class="auth-form">
+
+<div class="form-box">
+
+<h2>Welcome back to Stackly</h2>
+
+<form id="loginForm">
+
+<div class="input-group">
+<div class="input-group">
+
+<label class="input-label">Login As</label>
+
+<select id="role">
+<option value="">Select Role</option>
+<option value="user">User</option>
+<option value="admin">Admin</option>
+</select>
+
+<span class="error" id="roleError"></span>
+
+</div>
+<span class="error" id="roleError"></span>
+</div>
+
+<div class="input-group">
+<input type="text" id="email" placeholder="Email Address*">
+<span class="error" id="emailError"></span>
+</div>
+
+<div class="input-group">
+
+<input type="password" id="password" placeholder="Password*">
+
+<span class="toggle-password" onclick="togglePassword()">👁</span>
+
+<span class="error" id="passwordError"></span>
+
+</div>
+
+<div class="login-options">
+
+<label>
+<input type="checkbox"> Remember me
+</label>
+
+<a href="#">Forgot Password?</a>
+
+</div>
+
+<button class="login-btn">Sign In</button>
+
+</form>
+
+<div class="auth-footer">
+Don't have an account? <a href="register.html">Sign up</a>
+</div>
+
+</div>
+
+</div>
+
+<div class="auth-image">
+<img src="images/b1 (1).webp">
+</div>
+
+</div>
+
+<script>
+
+function togglePassword(){
+
+let pass=document.getElementById("password");
+
+pass.type = pass.type === "password" ? "text" : "password";
+
+}
+
+document.getElementById("loginForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let role=document.getElementById("role").value;
+let email=document.getElementById("email").value.trim();
+let password=document.getElementById("password").value.trim();
+
+let emailRegex=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+document.getElementById("roleError").innerText="";
+document.getElementById("emailError").innerText="";
+document.getElementById("passwordError").innerText="";
+
+let valid=true;
+
+if(role===""){
+document.getElementById("roleError").innerText="Select role";
+valid=false;
+}
+
+if(email===""){
+document.getElementById("emailError").innerText="Enter email";
+valid=false;
+}
+else if(!emailRegex.test(email)){
+document.getElementById("emailError").innerText="Invalid email";
+valid=false;
+}
+
+if(password===""){
+document.getElementById("passwordError").innerText="Enter password";
+valid=false;
+}
+
+if(valid){
+
+if(role==="admin"){
+window.location.href="admin-dashboard.html";
+}
+
+else{
+window.location.href="user-dashboard.html";
+}
+
+}
+
+});
+
+</script>
+
+</body>
+</html>

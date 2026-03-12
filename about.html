@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stackly</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-container">
+
+    <div class="social-icons">
+      <a href="404.html"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="404.html"><i class="fa-brands fa-twitter"></i></a>
+      <a href="404.html"><i class="fa-brands fa-instagram"></i></a>
+      <a href="404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+
+    <div class="top-text">
+      24/7 Support | stackly@gmail.com
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- HEADER -->
+
+<header class="header">
+  <div class="container nav-container">
+<div class="logo">
+  <a href="index.html">
+    <img src="images/loo.webp" alt="logo">
+  </a>
+</div>
+
+    <nav class="nav">
+      <ul>
+
+        <li class="dropdown">
+          <a href="#">Home ▾</a>
+
+          <ul class="dropdown-menu">
+            <li><a href="home2.html">Home 2</a></li>
+          </ul>
+
+        </li>
+
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+
+      </ul>
+    </nav>
+<a href="login.html" class="moving-btn"><span>Login</span></a>
+
+    <!-- HAMBURGER -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+</header>
+
+
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+<button class="close-menu" id="closeMenu">✕</button>
+
+<ul>
+
+<li class="mobile-dropdown">
+
+<div class="mobile-home">
+Home <span>▾</span>
+</div>
+
+<ul class="mobile-submenu" id="mobileSubmenu">
+<li><a href="home2.html">Home 2</a></li>
+</ul>
+
+</li>
+
+<li><a href="about.html">About</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="blogs.html">Blogs</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="dashboard.html">Dashboard</a></li>
+
+</ul>
+
+</div>
+
+
+
+
+
+
+<section class="stack-about-hero">
+
+<div class="about-container">
+
+<h1 class="about-title" id="aboutTitle">ABOUT US</h1>
+
+<div class="about-breadcrumb">
+<span>HOME</span>
+
+<span class="active">ABOUT US</span>
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+document.addEventListener("DOMContentLoaded",function(){
+
+const aboutTitle=document.getElementById("aboutTitle");
+
+window.addEventListener("scroll",function(){
+
+let scrollValue=window.scrollY;
+
+aboutTitle.style.transform="translateY(" + scrollValue * 0.3 + "px)";
+
+});
+
+});
+
+</script>
+
+
+
+
+<section class="stack-about-section">
+
+<div class="about-grid">
+
+<!-- LEFT CARD -->
+
+<div class="mission-card">
+
+<h3>Our Mission & Values</h3>
+
+<p>
+paynone our journey began with a vision to revolutionize banking by
+embracing the digital age.
+</p>
+
+<ul>
+
+<li>✔ User-Friendly Mobile App</li>
+<li>✔ Secure Online Banking</li>
+<li>✔ Personalized Financial Solutions</li>
+<li>✔ Assistance with Technical Issues</li>
+
+</ul>
+
+<button class="learn-btn">LEARN MORE</button>
+
+</div>
+
+
+<!-- CENTER IMAGE -->
+
+<div class="about-image">
+
+<img src="images/pp (18).webp" alt="about">
+
+</div>
+
+
+<!-- RIGHT ACCORDION -->
+
+<div class="about-accordion">
+
+<div class="accordion-item active">
+
+<div class="accordion-header">
+
+<h4>Our Story</h4>
+<span class="icon">−</span>
+
+</div>
+
+<div class="accordion-content">
+
+<p>
+stackly we are a dedicated team of financial experts committed to
+providing innovative banking solutions.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="accordion-item">
+
+<div class="accordion-header">
+
+<h4>Who We Are</h4>
+<span class="icon">+</span>
+
+</div>
+
+<div class="accordion-content">
+
+<p>
+We provide modern banking services designed to help businesses
+manage their finances efficiently.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="accordion-item">
+
+<div class="accordion-header">
+
+<h4>Why Choose Stackly</h4>
+<span class="icon">+</span>
+
+</div>
+
+<div class="accordion-content">
+
+<p>
+Fast transactions, secure payments and a modern financial ecosystem
+built for the digital world.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded",function(){
+
+const accordion=document.querySelectorAll(".accordion-item");
+
+accordion.forEach(item=>{
+
+const header=item.querySelector(".accordion-header");
+
+header.addEventListener("click",function(){
+
+accordion.forEach(el=>{
+
+if(el!==item){
+
+el.classList.remove("active");
+el.querySelector(".icon").textContent="+";
+
+}
+
+});
+
+item.classList.toggle("active");
+
+let icon=item.querySelector(".icon");
+
+if(item.classList.contains("active")){
+
+icon.textContent="−";
+
+}else{
+
+icon.textContent="+";
+
+}
+
+});
+
+});
+
+
+/* scroll animation */
+
+const cards=document.querySelectorAll(".mission-card, .about-image, .about-accordion");
+
+window.addEventListener("scroll",function(){
+
+let trigger=window.innerHeight*0.85;
+
+cards.forEach(card=>{
+
+let top=card.getBoundingClientRect().top;
+
+if(top<trigger){
+
+card.style.transform="translateY(0)";
+card.style.opacity="1";
+
+}
+
+});
+
+});
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="stack-stats">
+
+<div class="stats-wrapper">
+
+<div class="stats-left">
+
+<h2 class="card-number" data-count="17500">0</h2>
+
+<p>Banking Card<br>available</p>
+
+</div>
+
+
+<div class="stats-right">
+
+<div class="stat-item">
+
+<div class="stat-circle">
+
+<h3 class="counter" data-count="12">0</h3>
+<span>+</span>
+
+</div>
+
+<h4>Years of Excellent</h4>
+
+<p>Decades of unmatched excellence</p>
+
+</div>
+
+
+<div class="stat-item">
+
+<div class="stat-circle">
+
+<h3 class="counter" data-count="75">0</h3>
+<span>+</span>
+
+</div>
+
+<h4>Expert Members</h4>
+
+<p>Decades of unmatched excellence</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded",function(){
+
+const counters=document.querySelectorAll(".counter");
+const card=document.querySelector(".card-number");
+
+let started=false;
+
+window.addEventListener("scroll",function(){
+
+const section=document.querySelector(".stack-stats");
+
+const sectionTop=section.getBoundingClientRect().top;
+
+if(sectionTop<window.innerHeight && !started){
+
+started=true;
+
+counters.forEach(counter=>{
+
+let target=+counter.getAttribute("data-count");
+
+let count=0;
+
+let update=setInterval(()=>{
+
+count++;
+
+counter.innerText=count;
+
+if(count>=target){
+
+clearInterval(update);
+
+}
+
+},30);
+
+});
+
+
+let target=+card.getAttribute("data-count");
+
+let count=0;
+
+let update=setInterval(()=>{
+
+count+=200;
+
+card.innerText=(count/1000).toFixed(1)+"k";
+
+if(count>=target){
+
+clearInterval(update);
+
+card.innerText="17.5k";
+
+}
+
+},30);
+
+}
+
+});
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="why-section">
+
+<div class="why-header">
+
+<h2>Why Trust paynone For Your Payments?</h2>
+<p>Help agencies to define their new business objectives and create professional software.</p>
+</div>
+
+<div class="why-grid">
+
+<div class="why-card fade-up">
+<div class="icon-box">
+
+<img src="images/pp (20).webp" >
+
+</div>
+<h3>Fast Transactions</h3>
+<p>Enjoy instant encrypted money transfers with top-tier security protocols.</p>
+</div>
+
+<div class="why-card fade-down">
+<div class="icon-box">
+
+<img src="images/pp (19).webp" >
+
+</div>
+<h3>Transparent Pricing</h3>
+<p>No hidden charges and fully transparent transactions.</p>
+</div>
+
+<div class="why-card fade-up">
+<div class="icon-box">
+    <img src="images/pp (21).webp" >
+</div>
+<h3>Global Accessibility</h3>
+<p>Send and receive payments anywhere anytime with multi-currency support.</p>
+</div>
+
+<div class="why-card fade-down">
+<div class="icon-box">
+    <img src="images/pp (19).webp" >
+</div>
+<h3>24/7 Customer Support</h3>
+<p>Our expert team is always available to assist you.</p>
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded",function(){
+
+let elements=document.querySelectorAll(".fade-up, .fade-down");
+
+function reveal(){
+
+let windowHeight=window.innerHeight;
+
+elements.forEach(function(el){
+
+let top=el.getBoundingClientRect().top;
+
+if(top < windowHeight - 100){
+el.classList.add("show");
+}
+
+});
+
+}
+
+window.addEventListener("scroll",reveal);
+
+reveal();
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<section class="team-section">
+
+<div class="team-header">
+
+<div class="team-left">
+<span class="team-tag">✦ Team Members</span>
+<h2>Experts Team Member For <br>Your Support</h2>
+</div>
+
+<div class="team-right">
+<p>
+We are all passionate and committed to deliver
+high quality services to our clients.
+</p>
+
+<a href="#" class="read-btn">READ MORE</a>
+</div>
+
+</div>
+
+
+<div class="team-grid">
+
+<div class="team-card" data-aos="fade-up">
+
+<div class="team-img">
+<img src="images/pp (2).webp">
+</div>
+
+<h3>Jane Cooper</h3>
+<p>Marketing Coordinator</p>
+
+<div class="arrow">↗</div>
+
+</div>
+
+
+<div class="team-card" data-aos="fade-up" data-aos-delay="200">
+
+<div class="team-img">
+<img src="images/pp (3).webp">
+</div>
+
+<h3>Darlene Robertson</h3>
+<p>Bank Manager</p>
+
+<div class="arrow">↗</div>
+
+</div>
+
+
+<div class="team-card" data-aos="fade-up" data-aos-delay="400">
+
+<div class="team-img">
+<img src="images/pp (4).webp">
+</div>
+
+<h3>Marvin McKinney</h3>
+<p>bank head</p>
+
+<div class="arrow">↗</div>
+
+</div>
+
+
+<div class="team-card" data-aos="fade-up" data-aos-delay="600">
+
+<div class="team-img">
+<img src="images/pp (5).webp">
+</div>
+
+<h3>Theresa Webb</h3>
+<p>Deposit Manager</p>
+
+<div class="arrow">↗</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<section class="stackly-testimonials">
+
+<div class="stackly-container">
+
+<div class="stackly-testimonial-top">
+
+<div>
+<span class="stackly-small">Testimonials</span>
+<h2>What Our Clients Say About Us</h2>
+</div>
+
+<div class="stackly-right">
+
+<p>
+24M+ happy clients all around the world.
+Don't just take our word for it
+</p>
+
+<div class="stackly-nav">
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="stackly-slider">
+
+<div class="stackly-card">
+
+<div class="stackly-user">
+
+<img src="images/g125 (1).webp">
+
+<div>
+<h4>Darlene Robertson</h4>
+<span>Software Tester</span>
+</div>
+
+</div>
+
+<p class="stackly-review">
+Our customers love the seamless, reliable service and
+24/7 support that Stackly provides for global payments.
+</p>
+
+<div class="stackly-rating">
+4.5 - Excellent ★★★★★
+</div>
+
+</div>
+
+
+
+<div class="stackly-card">
+
+<div class="stackly-user">
+
+<img src="images/g125 (2).webp">
+
+<div>
+<h4>Jenny Wilson</h4>
+<span>Software Tester</span>
+</div>
+
+</div>
+
+<p class="stackly-review">
+Stackly provides secure and fast transactions.
+Their payment system is smooth and extremely reliable.
+</p>
+
+<div class="stackly-rating">
+4.5 - Excellent ★★★★★
+</div>
+
+</div>
+
+
+
+<div class="stackly-card">
+
+<div class="stackly-user">
+
+<img src="images/g125 (3).webp">
+
+<div>
+<h4>Kathryn Murphy</h4>
+<span>Software Tester</span>
+</div>
+
+</div>
+
+<p class="stackly-review">
+Great fintech platform with easy transfers and
+excellent support team available anytime.
+</p>
+
+<div class="stackly-rating">
+4.5 - Excellent ★★★★★
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="faq-section">
+
+<h2 class="faq-title">Frequently Asked Questions</h2>
+<p class="faq-sub">Browse our FAQ section for answers to common banking queries.</p>
+
+<div class="faq-tabs">
+
+<button class="faq-tab active" data-tab="general">
+
+<img src="images/g8.webp">
+<span>General Questions</span>
+
+</button>
+
+<button class="faq-tab" data-tab="mobile">
+
+<img src="images/g1 (14).webp">
+<span>Mobile Banking</span>
+
+</button>
+
+<button class="faq-tab" data-tab="transfer">
+
+<img src="images/g1 (15).webp">
+<span>Money Transfer</span>
+
+</button>
+
+<button class="faq-tab" data-tab="fees">
+
+<img src="images/g1 (16).webp">
+<span>Fees & Charges</span>
+
+</button>
+
+</div>
+
+<div id="faq-container"></div>
+
+</section>
+
+
+<script>
+const faqTabs = document.querySelectorAll(".faq-tab");
+const faqContainer = document.getElementById("faq-container");
+
+const faqData = {
+
+general:[
+{
+q:"What services do you offer?",
+a:"Stackly provides online banking, digital payments, secure transfers and financial tools."
+},
+{
+q:"Is Stackly secure?",
+a:"Yes, we use bank-level encryption and multi-layer security protection."
+},
+{
+q:"Can I access Stackly globally?",
+a:"Yes, Stackly supports international banking and transfers."
+},
+{
+q:"Do I need identity verification?",
+a:"Yes, verification helps protect your account and transactions."
+}
+],
+
+mobile:[
+{
+q:"How do I access mobile banking?",
+a:"Download the Stackly mobile app and login using your account."
+},
+{
+q:"Is the mobile banking app free?",
+a:"Yes, the app is completely free to download."
+},
+{
+q:"Can I track my transactions?",
+a:"Yes, the app shows real-time balance and transaction history."
+},
+{
+q:"Is mobile banking safe?",
+a:"Biometric authentication and encryption protect your account."
+}
+],
+
+transfer:[
+{
+q:"How do I send money?",
+a:"Select the recipient, enter the amount and confirm the transfer."
+},
+{
+q:"How fast are transfers?",
+a:"Most Stackly transfers are instant."
+},
+{
+q:"Can I cancel a transfer?",
+a:"Transfers can only be cancelled before final confirmation."
+},
+{
+q:"Are there transfer limits?",
+a:"Limits depend on your account verification level."
+}
+],
+
+fees:[
+{
+q:"Are there transaction fees?",
+a:"Stackly charges minimal service fees for certain transactions."
+},
+{
+q:"Do international transfers cost more?",
+a:"Stackly offers low cost international transfers."
+},
+{
+q:"Is mobile banking free?",
+a:"Yes, there are no charges for using the mobile app."
+},
+{
+q:"Where can I see fees?",
+a:"All charges are clearly shown before confirming a transaction."
+}
+]
+
+};
+
+
+/* render questions */
+
+function renderFaq(type){
+
+faqContainer.innerHTML="";
+
+faqData[type].forEach(item=>{
+
+const faq=document.createElement("div");
+
+faq.className="faq-item";
+
+faq.innerHTML=`
+<div class="faq-question">
+${item.q}
+<span class="faq-icon">+</span>
+</div>
+
+<div class="faq-answer">${item.a}</div>
+`;
+
+faqContainer.appendChild(faq);
+
+});
+
+activateAccordion();
+
+}
+
+
+/* accordion */
+
+function activateAccordion(){
+
+const questions=document.querySelectorAll(".faq-question");
+
+questions.forEach(q=>{
+
+q.addEventListener("click",()=>{
+
+const parent=q.parentElement;
+
+parent.classList.toggle("active");
+
+const icon=q.querySelector(".faq-icon");
+
+icon.textContent=parent.classList.contains("active")?"−":"+";
+
+});
+
+});
+
+}
+
+
+/* tab switching */
+
+faqTabs.forEach(tab=>{
+
+tab.addEventListener("click",()=>{
+
+faqTabs.forEach(t=>t.classList.remove("active"));
+
+tab.classList.add("active");
+
+renderFaq(tab.dataset.tab);
+
+});
+
+});
+
+
+renderFaq("general");
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<footer class="stack-footer">
+
+<div class="footer-grid">
+
+
+<div class="footer-col">
+
+<div class="footer-col">
+<a href="index.html" class="footer-logo">
+  <img src="images/loo.webp" alt="Stackly Logo">
+</a>
+
+<p>
+We've got the perfect tools for your success.
+Join us today and empower toward excellence.
+</p>
+
+<div class="footer-social">
+
+<a href="404.html" class="social-icon">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fab fa-youtube"></i>
+</a>
+
+<a href="404.html" class="social-icon">
+<i class="fab fa-twitter"></i>
+</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Quick Links</h4>
+
+<ul>
+<li><a href="404.html">About Us</a></li>
+<li><a href="404.html">Payment</a></li>
+<li><a href="404.html">Faqs</a></li>
+<li><a href="404.html">Contact Us</a></li>
+</ul>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Our Services</h4>
+
+<ul>
+<li><a href="404.html">Transfer Money</a></li>
+<li><a href="404.html">Saving Account</a></li>
+<li><a href="404.html">Online Shopping</a></li>
+<li><a href="404.html">Pay Bills</a></li>
+</ul>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Contact</h4>
+
+<p>Stackly Financial Center</p>
+<p>support@stackly.com</p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<p>© 2026 Stackly</p>
+
+</div>
+
+</footer>
+
+<button id="scrollTopBtn">
+<i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script>
+
+  document.addEventListener("DOMContentLoaded",function(){
+
+const scrollBtn=document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll",function(){
+
+if(window.scrollY>300){
+
+scrollBtn.classList.add("show");
+
+}else{
+
+scrollBtn.classList.remove("show");
+
+}
+
+});
+
+scrollBtn.addEventListener("click",function(){
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+});
+
+});
+</script>
+
+
+<script src="main.js"></script>
+
+</body>
+</html>
