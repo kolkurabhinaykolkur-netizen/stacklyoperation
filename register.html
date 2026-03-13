@@ -220,11 +220,83 @@ border-radius:12px;
 
 }
 
+
+/* STACKLY LOADER */
+
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:#000;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+z-index:9999;
+}
+
+.loader-box{
+text-align:center;
+color:#fff;
+}
+
+
+.loader-logo{
+width:200px;
+margin-bottom:35px;
+}
+
+/* PROGRESS BAR */
+
+.progress-bar{
+width:220px;
+height:6px;
+background:#333;
+border-radius:10px;
+overflow:hidden;
+margin:auto;
+}
+
+.progress{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#00ffd5,#00aaff);
+transition:width 0.1s linear;
+}
+
+#percent{
+margin-top:10px;
+font-size:16px;
+}
+
 </style>
 
 </head>
 
 <body>
+
+
+    
+<!-- STACKLY LOADER -->
+<div id="loader">
+
+<div class="loader-box">
+
+<img src="images/loo.webp" class="loader-logo">
+
+<div class="progress-bar">
+<div class="progress" id="progress"></div>
+</div>
+
+<p id="percent">0%</p>
+
+</div>
+
+</div>
+
 
 <div class="auth-wrapper">
 
@@ -385,6 +457,34 @@ window.location.href="login.html";
 });
 
 </script>
+
+<script>
+
+let width = 0;
+
+const progress = document.getElementById("progress");
+const percentText = document.getElementById("percent");
+
+const loaderInterval = setInterval(function(){
+
+width++;
+
+progress.style.width = width + "%";
+percentText.innerText = width + "%";
+
+if(width >= 100){
+
+clearInterval(loaderInterval);
+
+document.getElementById("loader").style.display = "none";
+
+}
+
+},15);
+
+</script>
+
+
 
 </body>
 </html>

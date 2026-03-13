@@ -21,6 +21,26 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 <body>
 
 
+<!-- STACKLY LOADER -->
+<div id="loader">
+
+<div class="loader-box">
+
+<img src="images/loo.webp" class="loader-logo">
+
+<div class="progress-bar">
+<div class="progress" id="progress"></div>
+</div>
+
+<p id="percent">0%</p>
+
+</div>
+
+</div>
+<!-- Your page content starts here -->
+<div class="auth-wrapper">
+
+
 <!-- TOP BAR -->
 <div class="topbar">
   <div class="topbar-container">
@@ -1132,5 +1152,32 @@ behavior:"smooth"
 
 <script src="main.js"></script>
 
+
+
+<script>
+
+let width = 0;
+
+const progress = document.getElementById("progress");
+const percentText = document.getElementById("percent");
+
+const loaderInterval = setInterval(function(){
+
+width++;
+
+progress.style.width = width + "%";
+percentText.innerText = width + "%";
+
+if(width >= 100){
+
+clearInterval(loaderInterval);
+
+document.getElementById("loader").style.display = "none";
+
+}
+
+},15);
+
+</script>
 </body>
 </html>
