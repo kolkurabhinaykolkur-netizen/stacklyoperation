@@ -140,7 +140,11 @@ stacklyRevealCards();
 
 
 
-const paymentFormBox = document.getElementById("requestForm");
+/* FORM ELEMENT */
+
+const form = document.getElementById("requestForm");
+
+/* INPUTS */
 
 const inputName = document.getElementById("userName");
 const inputEmail = document.getElementById("userEmail");
@@ -148,103 +152,111 @@ const inputCountry = document.getElementById("userCountry");
 const inputAmount = document.getElementById("userAmount");
 const inputDesc = document.getElementById("userDesc");
 
-const nameErrorMsg = document.getElementById("nameError");
-const emailErrorMsg = document.getElementById("emailError");
-const countryErrorMsg = document.getElementById("countryError");
-const amountErrorMsg = document.getElementById("amountError");
-const descErrorMsg = document.getElementById("descError");
+/* ERROR ELEMENTS */
 
-/* NAME VALIDATION */
+const nameError = document.getElementById("nameError");
+const emailError = document.getElementById("emailError");
+const countryError = document.getElementById("countryError");
+const amountError = document.getElementById("amountError");
+const descError = document.getElementById("descError");
 
-function validateName(nameValue){
 
-const namePattern = /^[A-Za-z\s]+$/;
+/* ---------------- NAME LIVE VALIDATION ---------------- */
 
-if(!namePattern.test(nameValue)){
-return false;
-}
+inputName.addEventListener("input", function(){
 
-return true;
+let value = inputName.value;
 
-}
+/* remove numbers & special characters */
+inputName.value = value.replace(/[^A-Za-z\s]/g,'');
 
-/* FORM SUBMIT */
-
-paymentFormBox.addEventListener("submit", function(e){
-
-e.preventDefault();
-
-let userNameValue = inputName.value.trim();
-let userEmailValue = inputEmail.value.trim();
-let userCountryValue = inputCountry.value.trim();
-let userAmountValue = inputAmount.value.trim();
-let userDescValue = inputDesc.value.trim();
-
-let formValid = true;
-
-/* name check */
-
-if(userNameValue === "" || !validateName(userNameValue)){
-nameErrorMsg.innerText="Only alphabets allowed in name";
-inputName.classList.add("input-error");
-formValid=false;
+if(inputName.value === ""){
+nameError.innerText = "Only alphabets allowed";
 }else{
-nameErrorMsg.innerText="";
-inputName.classList.remove("input-error");
-}
-
-/* email check */
-
-if(userEmailValue===""){
-emailErrorMsg.innerText="Email required";
-inputEmail.classList.add("input-error");
-formValid=false;
-}else{
-emailErrorMsg.innerText="";
-inputEmail.classList.remove("input-error");
-}
-
-/* country */
-
-if(userCountryValue===""){
-countryErrorMsg.innerText="Select country";
-inputCountry.classList.add("input-error");
-formValid=false;
-}else{
-countryErrorMsg.innerText="";
-inputCountry.classList.remove("input-error");
-}
-
-/* amount */
-
-if(userAmountValue===""){
-amountErrorMsg.innerText="Enter amount";
-inputAmount.classList.add("input-error");
-formValid=false;
-}else{
-amountErrorMsg.innerText="";
-inputAmount.classList.remove("input-error");
-}
-
-/* description */
-
-if(userDescValue===""){
-descErrorMsg.innerText="Enter description";
-inputDesc.classList.add("input-error");
-formValid=false;
-}else{
-descErrorMsg.innerText="";
-inputDesc.classList.remove("input-error");
-}
-
-/* redirect */
-
-if(formValid){
-window.location.href="404.html";
+nameError.innerText = "";
 }
 
 });
 
+
+/* ---------------- AMOUNT LIVE VALIDATION ---------------- */
+
+inputAmount.addEventListener("input", function(){
+
+let value = inputAmount.value;
+
+/* remove alphabets */
+inputAmount.value = value.replace(/[^0-9]/g,'');
+
+});
+
+
+/* ---------------- FORM SUBMIT ---------------- */
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+let name = inputName.value.trim();
+let email = inputEmail.value.trim();
+let country = inputCountry.value.trim();
+let amount = inputAmount.value.trim();
+let desc = inputDesc.value.trim();
+
+let valid = true;
+
+/* NAME */
+
+if(name === ""){
+nameError.innerText = "Name required";
+valid = false;
+}else{
+nameError.innerText = "";
+}
+
+/* EMAIL */
+
+if(email === ""){
+emailError.innerText = "Email required";
+valid = false;
+}else{
+emailError.innerText = "";
+}
+
+/* COUNTRY */
+
+if(country === ""){
+countryError.innerText = "Select country";
+valid = false;
+}else{
+countryError.innerText = "";
+}
+
+/* AMOUNT */
+
+if(amount === ""){
+amountError.innerText = "Enter amount";
+valid = false;
+}else{
+amountError.innerText = "";
+}
+
+/* DESCRIPTION */
+
+if(desc === ""){
+descError.innerText = "Enter description";
+valid = false;
+}else{
+descError.innerText = "";
+}
+
+/* SUCCESS */
+
+if(valid){
+window.location.href = "404.html";
+}
+
+});
 
 /* PAGE LOAD ANIMATION */
 
