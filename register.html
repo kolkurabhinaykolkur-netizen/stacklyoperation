@@ -19,6 +19,8 @@ box-sizing:border-box;
 font-family:"Plus Jakarta Sans",sans-serif;
 }
 
+/* DESKTOP BACKGROUND */
+
 body{
 background:#f4f6f7;
 }
@@ -41,8 +43,22 @@ padding:40px;
 width:380px;
 }
 
+/* STACKLY LOGO */
+
+.logo{
+text-align:center;
+margin-bottom:20px;
+}
+
+.logo img{
+width:150px;
+}
+
+/* TITLE */
+
 .form-box h2{
 margin-bottom:25px;
+text-align:center;
 }
 
 /* INPUT */
@@ -52,8 +68,7 @@ margin-bottom:18px;
 position:relative;
 }
 
-.input-group input,
-.input-group select{
+.input-group input{
 width:100%;
 padding:12px;
 border:1px solid #ddd;
@@ -121,6 +136,7 @@ font-weight:600;
 
 .auth-footer{
 margin-top:18px;
+text-align:center;
 }
 
 .auth-footer a{
@@ -143,15 +159,50 @@ justify-content:center;
 width:70%;
 }
 
-.input-label{
-display:block;
-font-size:14px;
-margin-bottom:6px;
-font-weight:600;
-color:#333;
+/* RAINBOW ANIMATION */
+
+@keyframes rainbowMove{
+
+0%{
+background-position:0% 50%;
 }
 
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+/* MOBILE VIEW */
+
 @media(max-width:900px){
+
+body{
+
+background: linear-gradient(
+270deg,
+#ff6ec4,
+#7873f5,
+#4facfe,
+#43e97b,
+#f9d423
+);
+
+background-size:800% 800%;
+
+animation:rainbowMove 12s ease infinite;
+
+}
+
+/* remove white layer so rainbow shows */
+
+.auth-form{
+background:transparent;
+}
 
 .auth-wrapper{
 flex-direction:column;
@@ -159,6 +210,12 @@ flex-direction:column;
 
 .auth-image{
 display:none;
+}
+
+.form-box{
+background:#fff;
+padding:30px;
+border-radius:12px;
 }
 
 }
@@ -175,6 +232,13 @@ display:none;
 
 <div class="form-box">
 
+<!-- STACKLY LOGO -->
+<div class="logo">
+<a href="index.html">
+<img src="images/logo.webp" alt="Stackly Logo">
+</a>
+</div>
+
 <h2>Create Account</h2>
 
 <form id="registerForm">
@@ -187,23 +251,6 @@ display:none;
 <div class="input-group">
 <input type="text" id="email" placeholder="Email Address*">
 <span class="error" id="emailError"></span>
-</div>
-
-<div class="input-group">
-<div class="input-group">
-
-<label class="input-label">Register As</label>
-
-<select id="role">
-<option value="">Select Role</option>
-<option value="user">User</option>
-<option value="admin">Admin</option>
-</select>
-
-<span class="error" id="roleError"></span>
-
-</div>
-<span class="error" id="roleError"></span>
 </div>
 
 <div class="input-group">
@@ -262,19 +309,13 @@ Already have an account? <a href="login.html">Login</a>
 <script>
 
 function togglePassword(){
-
 let pass=document.getElementById("password");
-
 pass.type = pass.type==="password" ? "text" : "password";
-
 }
 
 function toggleConfirm(){
-
 let pass=document.getElementById("confirmPassword");
-
 pass.type = pass.type==="password" ? "text" : "password";
-
 }
 
 document.getElementById("registerForm").addEventListener("submit",function(e){
@@ -283,7 +324,6 @@ e.preventDefault();
 
 let name=document.getElementById("name").value.trim();
 let email=document.getElementById("email").value.trim();
-let role=document.getElementById("role").value;
 let password=document.getElementById("password").value.trim();
 let confirm=document.getElementById("confirmPassword").value.trim();
 let terms=document.getElementById("terms").checked;
@@ -292,7 +332,6 @@ let emailRegex=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
 document.getElementById("nameError").innerText="";
 document.getElementById("emailError").innerText="";
-document.getElementById("roleError").innerText="";
 document.getElementById("passwordError").innerText="";
 document.getElementById("confirmError").innerText="";
 document.getElementById("termsError").innerText="";
@@ -310,11 +349,6 @@ valid=false;
 }
 else if(!emailRegex.test(email)){
 document.getElementById("emailError").innerText="Invalid email";
-valid=false;
-}
-
-if(role===""){
-document.getElementById("roleError").innerText="Select role";
 valid=false;
 }
 
@@ -343,9 +377,7 @@ if(valid){
 document.getElementById("successMessage").style.display="block";
 
 setTimeout(function(){
-
 window.location.href="login.html";
-
 },2000);
 
 }

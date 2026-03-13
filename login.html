@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Login</title>
+<title>Stackly Login</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
 
@@ -18,6 +18,8 @@ padding:0;
 box-sizing:border-box;
 font-family:"Plus Jakarta Sans",sans-serif;
 }
+
+/* DESKTOP BACKGROUND */
 
 body{
 background:#f4f6f7;
@@ -43,9 +45,23 @@ padding:40px;
 width:380px;
 }
 
+/* LOGO */
+
+.logo{
+text-align:center;
+margin-bottom:20px;
+}
+
+.logo img{
+width:150px;
+}
+
+/* TITLE */
+
 .form-box h2{
 margin-bottom:25px;
 font-size:28px;
+text-align:center;
 }
 
 /* INPUT */
@@ -55,8 +71,7 @@ margin-bottom:18px;
 position:relative;
 }
 
-.input-group input,
-.input-group select{
+.input-group input{
 width:100%;
 padding:12px;
 border:1px solid #ddd;
@@ -102,6 +117,7 @@ color:#fff;
 border:none;
 border-radius:8px;
 cursor:pointer;
+font-size:16px;
 }
 
 /* FOOTER */
@@ -109,6 +125,7 @@ cursor:pointer;
 .auth-footer{
 margin-top:18px;
 font-size:14px;
+text-align:center;
 }
 
 .auth-footer a{
@@ -131,15 +148,50 @@ justify-content:center;
 width:70%;
 }
 
-.input-label{
-display:block;
-font-size:14px;
-margin-bottom:6px;
-font-weight:600;
-color:#333;
+/* RAINBOW ANIMATION */
+
+@keyframes rainbowMove{
+
+0%{
+background-position:0% 50%;
 }
 
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+/* MOBILE */
+
 @media(max-width:900px){
+
+body{
+
+background: linear-gradient(
+270deg,
+#ff6ec4,
+#7873f5,
+#4facfe,
+#43e97b,
+#f9d423
+);
+
+background-size:800% 800%;
+
+animation:rainbowMove 12s ease infinite;
+
+}
+
+/* remove white block so rainbow shows */
+
+.auth-form{
+background:transparent;
+}
 
 .auth-wrapper{
 flex-direction:column;
@@ -147,6 +199,14 @@ flex-direction:column;
 
 .auth-image{
 display:none;
+}
+
+.form-box{
+
+background:#fff;
+padding:30px;
+border-radius:12px;
+
 }
 
 }
@@ -159,30 +219,21 @@ display:none;
 
 <div class="auth-wrapper">
 
+<!-- LEFT LOGIN FORM -->
 <div class="auth-form">
 
 <div class="form-box">
 
-<h2>Welcome back to Stackly</h2>
+<!-- STACKLY LOGO -->
+<div class="logo">
+<a href="index.html">
+<img src="images/logo.webp" alt="Stackly Logo">
+</a>
+</div>
+
+<h2>Welcome back</h2>
 
 <form id="loginForm">
-
-<div class="input-group">
-<div class="input-group">
-
-<label class="input-label">Login As</label>
-
-<select id="role">
-<option value="">Select Role</option>
-<option value="user">User</option>
-<option value="admin">Admin</option>
-</select>
-
-<span class="error" id="roleError"></span>
-
-</div>
-<span class="error" id="roleError"></span>
-</div>
 
 <div class="input-group">
 <input type="text" id="email" placeholder="Email Address*">
@@ -221,6 +272,7 @@ Don't have an account? <a href="register.html">Sign up</a>
 
 </div>
 
+<!-- RIGHT IMAGE -->
 <div class="auth-image">
 <img src="images/b1 (1).webp">
 </div>
@@ -228,6 +280,8 @@ Don't have an account? <a href="register.html">Sign up</a>
 </div>
 
 <script>
+
+/* PASSWORD TOGGLE */
 
 function togglePassword(){
 
@@ -237,26 +291,21 @@ pass.type = pass.type === "password" ? "text" : "password";
 
 }
 
+/* FORM VALIDATION */
+
 document.getElementById("loginForm").addEventListener("submit",function(e){
 
 e.preventDefault();
 
-let role=document.getElementById("role").value;
 let email=document.getElementById("email").value.trim();
 let password=document.getElementById("password").value.trim();
 
 let emailRegex=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
-document.getElementById("roleError").innerText="";
 document.getElementById("emailError").innerText="";
 document.getElementById("passwordError").innerText="";
 
 let valid=true;
-
-if(role===""){
-document.getElementById("roleError").innerText="Select role";
-valid=false;
-}
 
 if(email===""){
 document.getElementById("emailError").innerText="Enter email";
@@ -274,13 +323,7 @@ valid=false;
 
 if(valid){
 
-if(role==="admin"){
-window.location.href="admin-dashboard.html";
-}
-
-else{
-window.location.href="user-dashboard.html";
-}
+window.location.href="dashboard.html";
 
 }
 

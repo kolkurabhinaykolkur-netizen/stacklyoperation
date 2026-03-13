@@ -1060,43 +1060,117 @@ z-index:2;
 width:30px;
 }
 
-/* mobile */
 
-@media(max-width:768px){
 
-.stackly-timeline:before{
-left:30px;
+
+@media (max-width:900px){
+
+.stackly-timeline{
+display:flex;
+flex-direction:column;
+gap:30px;
 }
 
 .stackly-step{
-flex-direction:row;
-padding-left:60px;
+display:flex;
+align-items:flex-start;
+gap:15px;
+width:100%;
 }
 
 .stackly-step.left,
 .stackly-step.right{
-justify-content:flex-start;
-text-align:left;
+flex-direction:row;
 }
 
 .stackly-icon{
-left:30px;
-transform:none;
+min-width:50px;
+height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.stackly-icon img{
+width:40px;
 }
 
 .stackly-content{
 width:100%;
 }
 
+.stackly-content h3{
+font-size:18px;
+margin-bottom:5px;
+}
+
+.stackly-content p{
+font-size:14px;
+line-height:1.5;
+}
+
 }
 
 
+@media (max-width:900px){
+
+.stackly-step{
+margin-bottom:45px;
+}
+
+.stackly-icon{
+position:relative;
+top:-15px;
+}
+
+.stackly-content{
+margin-top:-5px;
+}
 
 
+@media (max-width:900px){
 
+.stackly-timeline{
+position:relative;
+padding-left:0;
+}
 
+/* center vertical line */
 
+.stackly-timeline::before{
+left:50%;
+transform:translateX(-50%);
+}
 
+/* make steps full width */
+
+.stackly-step{
+width:100%;
+margin-bottom:40px;
+}
+
+/* center icons */
+
+.stackly-icon{
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+}
+
+/* center text */
+
+.stackly-content{
+text-align:center;
+padding-top:35px;
+}
+
+.stackly-step.left,
+.stackly-step.right{
+left:0;
+}
+
+}
+}
 .stackly-app{
 padding:120px 20px;
 background:#ffffff;
@@ -4104,3 +4178,6 @@ height:60px;   /* adjust size */
 width:auto;
 object-fit:contain;
 }
+
+
+
