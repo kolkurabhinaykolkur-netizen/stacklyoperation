@@ -264,118 +264,161 @@ aboutTitle.style.transform="translateY(" + scrollValue * 0.3 + "px)";
 
 
 
+
 <script>
 
-document.getElementById("contactForm").addEventListener("submit", function(e){
+const form = document.getElementById("contactForm");
+
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const phoneInput = document.getElementById("phone");
+const subjectInput = document.getElementById("subject");
+const messageInput = document.getElementById("message");
+
+const nameError = document.getElementById("nameError");
+const emailError = document.getElementById("emailError");
+const phoneError = document.getElementById("phoneError");
+const subjectError = document.getElementById("subjectError");
+const messageError = document.getElementById("messageError");
+
+const emailRegex = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+
+/* ---------------- NAME VALIDATION (LIVE) ---------------- */
+
+nameInput.addEventListener("input", function(){
+
+let value = nameInput.value;
+
+/* remove numbers & special characters */
+nameInput.value = value.replace(/[^A-Za-z ]/g,'');
+
+if(nameInput.value === ""){
+nameError.innerText = "Name is required";
+}
+else{
+nameError.innerText = "";
+}
+
+});
+
+
+/* ---------------- PHONE VALIDATION (LIVE) ---------------- */
+
+phoneInput.addEventListener("input", function(){
+
+let value = phoneInput.value;
+
+/* remove alphabets and symbols */
+phoneInput.value = value.replace(/[^0-9]/g,'');
+
+/* limit to 10 digits */
+if(phoneInput.value.length > 10){
+phoneInput.value = phoneInput.value.slice(0,10);
+}
+
+if(phoneInput.value.length < 10){
+phoneError.innerText = "Phone must be 10 digits";
+}
+else{
+phoneError.innerText = "";
+}
+
+});
+
+
+/* ---------------- EMAIL VALIDATION (LIVE) ---------------- */
+
+emailInput.addEventListener("input", function(){
+
+let email = emailInput.value;
+
+if(email === ""){
+emailError.innerText = "Email is required";
+}
+else if(!emailRegex.test(email)){
+emailError.innerText = "Enter valid email";
+}
+else{
+emailError.innerText = "";
+}
+
+});
+
+
+/* ---------------- SUBJECT VALIDATION ---------------- */
+
+subjectInput.addEventListener("input", function(){
+
+if(subjectInput.value.trim() === ""){
+subjectError.innerText = "Subject required";
+}
+else{
+subjectError.innerText = "";
+}
+
+});
+
+
+/* ---------------- MESSAGE VALIDATION ---------------- */
+
+messageInput.addEventListener("input", function(){
+
+if(messageInput.value.trim() === ""){
+messageError.innerText = "Message required";
+}
+else{
+messageError.innerText = "";
+}
+
+});
+
+
+/* ---------------- FORM SUBMIT ---------------- */
+
+form.addEventListener("submit", function(e){
 
 e.preventDefault();
 
-let name = document.getElementById("name").value.trim();
-let email = document.getElementById("email").value.trim();
-let phone = document.getElementById("phone").value.trim();
-let subject = document.getElementById("subject").value.trim();
-let message = document.getElementById("message").value.trim();
-
-let nameRegex = /^[A-Za-z ]+$/;
-let phoneRegex = /^[0-9]{10}$/;
-let emailRegex = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-
-/* clear previous errors */
-
-document.querySelectorAll(".error").forEach(el => el.innerText="");
-
 let valid = true;
 
+/* clear previous errors */
+document.querySelectorAll(".error").forEach(el => el.innerText="");
 
-/* NAME */
-
-if(name === ""){
-document.getElementById("nameError").innerText="Name is required";
-valid=false;
-}
-else if(!nameRegex.test(name)){
-document.getElementById("nameError").innerText="Only alphabets allowed";
-valid=false;
+if(nameInput.value.trim() === ""){
+nameError.innerText = "Name is required";
+valid = false;
 }
 
-
-/* EMAIL */
-
-if(email === ""){
-document.getElementById("emailError").innerText="Email is required";
-valid=false;
-}
-else if(!emailRegex.test(email)){
-document.getElementById("emailError").innerText="Enter valid email";
-valid=false;
+if(emailInput.value.trim() === ""){
+emailError.innerText = "Email is required";
+valid = false;
 }
 
-
-/* PHONE */
-
-if(phone === ""){
-document.getElementById("phoneError").innerText="Phone number required";
-valid=false;
-}
-else if(!phoneRegex.test(phone)){
-document.getElementById("phoneError").innerText="Phone must be 10 digits";
-valid=false;
+if(phoneInput.value.length !== 10){
+phoneError.innerText = "Phone must be 10 digits";
+valid = false;
 }
 
-
-/* SUBJECT */
-
-if(subject === ""){
-document.getElementById("subjectError").innerText="Subject required";
-valid=false;
+if(subjectInput.value.trim() === ""){
+subjectError.innerText = "Subject required";
+valid = false;
 }
 
-
-/* MESSAGE */
-
-if(message === ""){
-document.getElementById("messageError").innerText="Message required";
-valid=false;
+if(messageInput.value.trim() === ""){
+messageError.innerText = "Message required";
+valid = false;
 }
-
 
 if(valid){
-
 alert("Form submitted successfully");
-
-document.getElementById("contactForm").reset();
-
+form.reset();
 }
 
 });
 
 </script>
-
-
-
-
-
-
-
-
-<!-- GOOGLE MAP -->
-
-<section class="contact-map">
-
-<iframe
-src="https://www.google.com/maps?q=Madipura%20India&output=embed"
-width="100%"
-height="450"
-style="border:0;"
-loading="lazy">
-</iframe>
-
-</section>
-
-
-
-
-
+```
 
 
 

@@ -460,52 +460,88 @@ box.style.transform="translateY(0)";
 
 });
 
-
-
-
-
 const form = document.getElementById("contactForm");
 const errorMsg = document.getElementById("formError");
+
+const nameInput = document.getElementById("name");
+const phoneInput = document.getElementById("phone");
+
+/* ---------------- NAME LIVE VALIDATION ---------------- */
+
+nameInput.addEventListener("input", function(){
+
+let value = nameInput.value;
+
+/* remove numbers and special characters */
+nameInput.value = value.replace(/[^A-Za-z\s]/g,'');
+
+});
+
+
+/* ---------------- PHONE LIVE VALIDATION ---------------- */
+
+phoneInput.addEventListener("input", function(){
+
+let value = phoneInput.value;
+
+/* remove alphabets and symbols */
+phoneInput.value = value.replace(/[^0-9]/g,'');
+
+/* limit to 10 digits */
+if(phoneInput.value.length > 10){
+phoneInput.value = phoneInput.value.slice(0,10);
+}
+
+});
+
+
+/* ---------------- FORM SUBMIT VALIDATION ---------------- */
 
 form.addEventListener("submit", function(e){
 
 e.preventDefault();
 
-const name = document.getElementById("name").value.trim();
+const name = nameInput.value.trim();
 const email = document.getElementById("email").value.trim();
-const phone = document.getElementById("phone").value.trim();
+const phone = phoneInput.value.trim();
 const address = document.getElementById("address").value.trim();
 const message = document.getElementById("message").value.trim();
 
 const nameRegex = /^[A-Za-z\s]+$/;
 const phoneRegex = /^[0-9]{10}$/;
 
+/* empty check */
+
 if(name === "" || email === "" || phone === "" || address === "" || message === ""){
 
-errorMsg.innerText="Please fill all the details.";
-
+errorMsg.innerText = "Please fill all the details.";
 return;
 
 }
+
+/* name validation */
 
 if(!nameRegex.test(name)){
 
-errorMsg.innerText="Name should contain only alphabets.";
-
+errorMsg.innerText = "Name should contain only alphabets.";
 return;
 
 }
+
+/* phone validation */
 
 if(!phoneRegex.test(phone)){
 
-errorMsg.innerText="Phone number must be 10 digits.";
-
+errorMsg.innerText = "Phone number must be 10 digits.";
 return;
 
 }
 
-errorMsg.innerText="";
+errorMsg.innerText = "";
 
-window.location.href="404.html";
+/* redirect */
+
+window.location.href = "404.html";
 
 });
+
